@@ -14,4 +14,9 @@
     "psr-4": {
         "Secalith\\ExpressiveAdrCommon\\": "src/"
     }
+    "extra": {
+        "zf": {
+            "config-provider": "Secalith\\ExpressiveAdrCommon\\ConfigProvider"
+        }
+    },
 }
