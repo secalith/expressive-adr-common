@@ -1,0 +1,18 @@
+{
+    "name": "secalith/expressive-adr-common",
+    "description": "Common Classes for projects built with Zend Expressive",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jan F Kowalski",
+            "email": "jan@secalith.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.2"
+    },
+    "psr-4": {
+        "Secalith\\ExpressiveAdrCommon\\": "src/ExpressiveAdrCommon/src/"
+    }
+}
