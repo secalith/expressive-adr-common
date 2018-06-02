@@ -33,7 +33,7 @@ class StaticPageHandlerFactory
             : null;
         $urlHelper = $container->get(UrlHelper::class);
         $dbCacheService = $container->get('memcached');
-        $currentRouteName = $container->get(\Common\Helper\CurrentRouteNameHelper::class)->getMatchedRouteName();
+        $currentRouteName = $container->get(Secalith\ExpressiveAdrCommon\Helper\CurrentRouteNameHelper::class)->getMatchedRouteName();
 
         $config = $container->has('config') ? $container->get('config') : [];
         if( is_array($config)
