@@ -45,6 +45,36 @@ class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencies(),
+            'templates'    => $this->getTemplates(),
+            'view_helpers'  => [
+                'invokables' => [
+                    'isFormSet' => IsFormSet::class,
+                    'getFormAttached' => GetFormAttached::class,
+                    'flashMessage' => FlashMessage::class,
+                ],
+                'factories' => [
+                    'currentRoute' => CurrentUrlHelperFactory::class,
+                    'displayLinkGroup' => DisplayLinkGroupHelperFactory::class,
+                ],
+            ],
+            'session_config' => [
+                'cookie_lifetime' => 60*60*10,
+                'gc_maxlifetime' => 60*60*24*30,
+            ],
+            'session_manager' => [
+                'validators' => [
+                    RemoteAddr::class,
+                    HttpUserAgent::class,
+                ]
+            ],
+            'session_storage' => [
+                'type' => SessionArrayStorage::class
+            ],
+            'cache' => [
+                'enabled' => true,
+                'path' => 'data/cache/',
+                'lifetime' => 3600
+            ],
         ];
     }
 
@@ -54,7 +84,35 @@ class ConfigProvider
     public function getDependencies() : array
     {
         return [
+            'invokables' => [
+                CurrentUrlHelper::class => CurrentUrlHelper::class,
+
+            ],
+            'factories' => [
+                CurrentUrlMiddleware::class => CurrentUrlMiddlewareFactory::class,
+                StaticPageHandler::class => StaticPageHandlerFactory::class,
+                CurrentRouteNameMiddleware::class => CurrentRouteNameMiddlewareFactory::class,
+                CurrentRouteNameHelper::class => CurrentRouteNameHelperFactory::class,
+                StaticPageHandlerCacheMiddleware::class => StaticPageHandlerCacheMiddlewareFactory::class,
+            ],
+            'abstract_factories' => [
+                \Secalith\ExpressiveAdrCommon\Handler\Factory\ListHandlerAbstractFactory::class,
+                \Secalith\ExpressiveAdrCommon\Handler\Factory\CreateHandlerAbstractFactory::class,
+                \Secalith\ExpressiveAdrCommon\Handler\Factory\ReadHandlerAbstractFactory::class,
+                Service\GatewayAbstractFactory::class,
+                Service\TableServiceAbstractFactory::class,
+                \Zend\Cache\Service\StorageCacheAbstractServiceFactory::class,
+            ],
             'delegators' => [],
+        ];
+    }
+
+    public function getTemplates()
+    {
+        return [
+            'paths' => [
+                'common' => [__DIR__ . '/../templates/common'],
+            ],
         ];
     }
 
