@@ -8,7 +8,6 @@
             "email": "jan@secalith.co.uk"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^7.2"
     },
