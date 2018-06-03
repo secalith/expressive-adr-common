@@ -13,7 +13,7 @@
         "php": "^7.2"
     },
     "psr-4": {
-        "Secalith\\ExpressiveAdrCommon\\": "src/"
+        "Secalith\\ExpressiveAdrCommon\\": "vendor/secalith/expressive-adr-common/src/"
     },
     "extra": {
         "zf": {
