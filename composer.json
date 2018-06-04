@@ -12,11 +12,11 @@
         "php": "^7.2"
     },
     "psr-4": {
-        "Secalith\\ExpressiveAdrCommon\\": "vendor/secalith/expressive-adr-common/src/"
+        "ExpressiveAdrCommon\\": "src/"
     },
     "extra": {
         "zf": {
-            "config-provider": "Secalith\\ExpressiveAdrCommon\\ConfigProvider"
+            "config-provider": "ExpressiveAdrCommon\\ConfigProvider"
         }
     }
 }
