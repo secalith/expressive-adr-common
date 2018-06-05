@@ -2,7 +2,7 @@
     "name": "secalith/expressive-adr-common",
     "description": "Common Classes for projects built with Zend Expressive",
     "type": "library",
-    "stability": "dev-master",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Jan F Kowalski",
